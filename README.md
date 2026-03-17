@@ -2,6 +2,8 @@
 
 這是一個 AI 課程的範例專案，提供預設的 **Agent Skills** 供學員練習如何與 AI 協作開發。
 
+課程講義：[deanlin.net/course/cake](https://deanlin.net/course/cake)
+
 ## 關於 Agent Skills
 
 專案內建的 Skills 以 **Claude Code** 為預設環境，放置於 `.claude/skills/` 目錄下。
