@@ -1,0 +1,45 @@
+schema: spec-driven
+
+context: |
+  ## 專案
+  車輛管理系統（Vehicle Management System）— 企業內部前端工具，管理車輛與員工資料。
+  課程範例專案，目標為最小可行性方案（MVP）。
+
+  ## Tech Stack
+  - Frontend: React 19 + Vite 8
+  - Styling: Tailwind CSS 3（utility-first，不使用自訂 CSS class）
+  - Routing: React Router v7（BrowserRouter，ProtectedRoute / AdminRoute）
+  - Charts: Recharts
+  - State: React Context（auth）+ useState（local）
+  - Mock API: in-memory module（src/api/mock/），無真實後端，重整後資料重置
+  - Node.js 20+ 必要（nvm use 20）
+
+  ## 角色與權限
+  - admin：可存取所有頁面（儀表板、車輛管理、員工管理）
+  - user：只能存取儀表板與車輛管理，訪問 /employees 會被導向 /dashboard
+
+  ## 程式碼慣例
+  - 元件：函式元件（function component），無 class component
+  - 檔案命名：PascalCase 元件檔，camelCase 工具函式檔
+  - Mock API 函式以 async/await 撰寫，統一加入隨機延遲（300-500ms）
+  - 表單驗證在送出時觸發，顯示 inline 錯誤訊息
+  - Commits 使用 Conventional Commits 格式
+
+  ## 目錄結構（vehicle-management-system/src/）
+  - api/mock/     — Mock API（auth, vehicles, employees, dashboard, delay）
+  - contexts/     — AuthContext
+  - routes/       — ProtectedRoute, AdminRoute
+  - components/   — 共用元件（Layout, DataTable, Modal, ConfirmDialog）
+  - pages/        — Login, Dashboard, Vehicles, Employees
+
+rules:
+  proposal:
+    - 以最小可行性方案為優先，明確列出 Non-goals
+    - Capabilities 使用 kebab-case，每個對應一個 specs/<name>/spec.md
+  design:
+    - 聚焦技術決策與理由，不逐行描述實作
+    - 若無新依賴或架構變動，design.md 可簡短
+  tasks:
+    - 每個 task 應可在單一 session 內完成
+    - 依相依順序排列（mock API → context → routes → components → pages）
+    - 驗收任務（整合測試）放在最後一個群組

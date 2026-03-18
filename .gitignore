@@ -1,0 +1,27 @@
+# 明確保留版本控制
+!.claude/
+!openspec/
+
+# Dependencies
+node_modules/
+
+# Build output
+dist/
+dist-ssr/
+
+# Logs
+*.log
+npm-debug.log*
+
+# Environment
+.env
+.env.local
+.env.*.local
+
+# Editor
+.DS_Store
+.vscode/settings.json
+.idea/
+
+# Vite
+*.local
