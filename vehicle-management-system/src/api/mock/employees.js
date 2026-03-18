@@ -1,4 +1,5 @@
 import { delay } from './delay'
+import { logActivity } from './activityLogs'
 
 let nextId = 6
 let employees = [
@@ -14,23 +15,27 @@ export async function getEmployees() {
   return [...employees]
 }
 
-export async function createEmployee(data) {
+export async function createEmployee(data, user) {
   await delay()
   const employee = { id: nextId++, ...data }
   employees.push(employee)
+  if (user) logActivity({ userId: user.id, username: user.username, action: 'create_employee', target: data.name })
   return employee
 }
 
-export async function updateEmployee(id, data) {
+export async function updateEmployee(id, data, user) {
   await delay()
   const idx = employees.findIndex((e) => e.id === id)
   if (idx === -1) throw new Error('員工不存在')
   employees[idx] = { ...employees[idx], ...data }
+  if (user) logActivity({ userId: user.id, username: user.username, action: 'update_employee', target: employees[idx].name })
   return employees[idx]
 }
 
-export async function deleteEmployee(id) {
+export async function deleteEmployee(id, user) {
   await delay()
+  const employee = employees.find((e) => e.id === id)
   employees = employees.filter((e) => e.id !== id)
+  if (user && employee) logActivity({ userId: user.id, username: user.username, action: 'delete_employee', target: employee.name })
   return { success: true }
 }

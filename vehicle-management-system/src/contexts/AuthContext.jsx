@@ -1,5 +1,5 @@
 import { createContext, useContext, useState } from 'react'
-import { login as apiLogin } from '../api/mock/auth'
+import { login as apiLogin, logout as apiLogout } from '../api/mock/auth'
 
 const AuthContext = createContext(null)
 
@@ -13,6 +13,7 @@ export function AuthProvider({ children }) {
   }
 
   function logout() {
+    apiLogout(user)
     setUser(null)
   }
 
