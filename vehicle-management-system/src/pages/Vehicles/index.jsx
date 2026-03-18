@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react'
 import Layout from '../../components/Layout'
+import { useAuth } from '../../contexts/AuthContext'
 import DataTable from '../../components/DataTable'
 import Modal from '../../components/Modal'
 import ConfirmDialog from '../../components/ConfirmDialog'
@@ -68,6 +69,7 @@ function VehicleForm({ initial, onSubmit, onCancel, loading }) {
 }
 
 export default function Vehicles() {
+  const { user } = useAuth()
   const [vehicles, setVehicles] = useState([])
   const [loading, setLoading] = useState(true)
   const [modal, setModal] = useState(null) // null | 'create' | { mode: 'edit', vehicle }
@@ -84,7 +86,7 @@ export default function Vehicles() {
 
   async function handleCreate(form) {
     setSaving(true)
-    const newV = await createVehicle(form)
+    const newV = await createVehicle(form, user)
     setVehicles((prev) => [...prev, newV])
     setModal(null)
     setSaving(false)
@@ -92,14 +94,14 @@ export default function Vehicles() {
 
   async function handleUpdate(form) {
     setSaving(true)
-    const updated = await updateVehicle(modal.vehicle.id, form)
+    const updated = await updateVehicle(modal.vehicle.id, form, user)
     setVehicles((prev) => prev.map((v) => v.id === updated.id ? updated : v))
     setModal(null)
     setSaving(false)
   }
 
   async function handleDelete(id) {
-    await deleteVehicle(id)
+    await deleteVehicle(id, user)
     setVehicles((prev) => prev.filter((v) => v.id !== id))
     setConfirm(null)
   }

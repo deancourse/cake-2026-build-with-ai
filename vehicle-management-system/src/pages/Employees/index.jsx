@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react'
 import Layout from '../../components/Layout'
+import { useAuth } from '../../contexts/AuthContext'
 import DataTable from '../../components/DataTable'
 import Modal from '../../components/Modal'
 import ConfirmDialog from '../../components/ConfirmDialog'
@@ -57,6 +58,7 @@ function EmployeeForm({ initial, onSubmit, onCancel, loading }) {
 }
 
 export default function Employees() {
+  const { user } = useAuth()
   const [employees, setEmployees] = useState([])
   const [loading, setLoading] = useState(true)
   const [modal, setModal] = useState(null)
@@ -73,7 +75,7 @@ export default function Employees() {
 
   async function handleCreate(form) {
     setSaving(true)
-    const newE = await createEmployee(form)
+    const newE = await createEmployee(form, user)
     setEmployees((prev) => [...prev, newE])
     setModal(null)
     setSaving(false)
@@ -81,14 +83,14 @@ export default function Employees() {
 
   async function handleUpdate(form) {
     setSaving(true)
-    const updated = await updateEmployee(modal.employee.id, form)
+    const updated = await updateEmployee(modal.employee.id, form, user)
     setEmployees((prev) => prev.map((e) => e.id === updated.id ? updated : e))
     setModal(null)
     setSaving(false)
   }
 
   async function handleDelete(id) {
-    await deleteEmployee(id)
+    await deleteEmployee(id, user)
     setEmployees((prev) => prev.filter((e) => e.id !== id))
     setConfirm(null)
   }

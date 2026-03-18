@@ -44,6 +44,16 @@ export default function Layout({ children }) {
               員工管理
             </NavLink>
           )}
+          {user?.role === 'admin' && (
+            <NavLink
+              to="/activity-logs"
+              className={({ isActive }) =>
+                `flex items-center px-6 py-3 text-sm hover:bg-gray-700 transition-colors ${isActive ? 'bg-gray-700 font-semibold' : ''}`
+              }
+            >
+              使用者紀錄
+            </NavLink>
+          )}
         </nav>
       </aside>
 
