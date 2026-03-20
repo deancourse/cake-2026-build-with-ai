@@ -29,7 +29,15 @@
       "Bash(git add openspec/config.yaml openspec/changes/vehicle-management-system/ openspec/changes/archive/ openspec/specs/ openspec/changes/user-activity-log/)",
       "Bash(git commit:*)",
       "Bash(git add openspec/config.yaml openspec/changes/ openspec/specs/)",
-      "Bash(git add README.md .gitignore CLAUDE.md .claude/settings.json)"
+      "Bash(git add README.md .gitignore CLAUDE.md .claude/settings.json)",
+      "Bash(git add vehicle-management/src/pages/ActivityLog.tsx vehicle-management/src/mocks/data.ts vehicle-management/src/mocks/handlers.ts vehicle-management/src/App.tsx vehicle-management/src/components/Layout.tsx)",
+      "Bash(git push -u origin feature/userActivityLog)",
+      "Bash(npm install -D vitest @testing-library/react @testing-library/jest-dom @testing-library/user-event jsdom)",
+      "Bash(npx vitest run src/pages/__tests__/Login.test.tsx)",
+      "Bash(npm test)"
+    ],
+    "additionalDirectories": [
+      "/Users/lindingyuan/Documents/external_project/cake-2026-build-with-ai/vehicle-management/doc"
     ]
   }
 }
