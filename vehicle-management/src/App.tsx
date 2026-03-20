@@ -6,6 +6,7 @@ import Login from './pages/Login'
 import Dashboard from './pages/Dashboard'
 import Vehicles from './pages/Vehicles'
 import Employees from './pages/Employees'
+import ActivityLog from './pages/ActivityLog'
 
 function App() {
   return (
@@ -17,6 +18,7 @@ function App() {
             <Route index element={<Dashboard />} />
             <Route path="vehicles" element={<Vehicles />} />
             <Route path="employees" element={<AdminRoute><Employees /></AdminRoute>} />
+            <Route path="activity-log" element={<AdminRoute><ActivityLog /></AdminRoute>} />
           </Route>
           <Route path="*" element={<Navigate to="/" replace />} />
         </Routes>

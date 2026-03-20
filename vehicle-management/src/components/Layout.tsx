@@ -33,9 +33,14 @@ export default function Layout() {
             車輛管理
           </NavLink>
           {isAdmin && (
-            <NavLink to="/employees" style={({ isActive }) => linkStyle(isActive)}>
-              員工管理
-            </NavLink>
+            <>
+              <NavLink to="/employees" style={({ isActive }) => linkStyle(isActive)}>
+                員工管理
+              </NavLink>
+              <NavLink to="/activity-log" style={({ isActive }) => linkStyle(isActive)}>
+                活動紀錄
+              </NavLink>
+            </>
           )}
         </nav>
         <div style={{ padding: '12px', borderTop: '1px solid #e8e8e8', fontSize: 14 }}>
