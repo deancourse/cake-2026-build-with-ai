@@ -15,7 +15,21 @@
       "Bash(npx msw init public --save)",
       "Bash(npx tsc --noEmit)",
       "Bash(npm run build)",
-      "Bash(npm run dev)"
+      "Bash(npm run dev)",
+      "Bash(openspec new change \"user-activity-log\")",
+      "Bash(openspec status --change \"user-activity-log\" --json)",
+      "Bash(openspec instructions proposal --change \"user-activity-log\" --json)",
+      "Bash(openspec instructions design --change \"user-activity-log\" --json)",
+      "Bash(openspec instructions specs --change \"user-activity-log\" --json)",
+      "Bash(openspec instructions tasks --change \"user-activity-log\" --json)",
+      "Bash(openspec status --change \"user-activity-log\")",
+      "Bash(openspec instructions apply --change \"user-activity-log\" --json)",
+      "Bash(npm run lint)",
+      "Bash(git checkout -b feature/userActivityLog)",
+      "Bash(git add openspec/config.yaml openspec/changes/vehicle-management-system/ openspec/changes/archive/ openspec/specs/ openspec/changes/user-activity-log/)",
+      "Bash(git commit:*)",
+      "Bash(git add openspec/config.yaml openspec/changes/ openspec/specs/)",
+      "Bash(git add README.md .gitignore CLAUDE.md .claude/settings.json)"
     ]
   }
 }
