@@ -1,0 +1,21 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(openspec new change \"vehicle-management-system\")",
+      "Bash(openspec status --change \"vehicle-management-system\" --json)",
+      "Bash(openspec instructions proposal --change \"vehicle-management-system\" --json)",
+      "Bash(openspec instructions design --change \"vehicle-management-system\" --json)",
+      "Bash(openspec instructions specs --change \"vehicle-management-system\" --json)",
+      "Bash(openspec instructions tasks --change \"vehicle-management-system\" --json)",
+      "Bash(openspec status --change \"vehicle-management-system\")",
+      "Bash(openspec instructions apply --change \"vehicle-management-system\" --json)",
+      "Bash(npm create vite@latest vehicle-management -- --template react-ts)",
+      "Bash(npm install)",
+      "Bash(npm install react-router-dom msw recharts)",
+      "Bash(npx msw init public --save)",
+      "Bash(npx tsc --noEmit)",
+      "Bash(npm run build)",
+      "Bash(npm run dev)"
+    ]
+  }
+}

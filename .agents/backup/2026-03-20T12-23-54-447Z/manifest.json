@@ -1,0 +1,43 @@
+{
+  "version": 1,
+  "createdAt": "2026-03-20T12:23:55.722Z",
+  "scope": "project",
+  "operation": "change-to-agents",
+  "entries": [
+    {
+      "originalPath": "/Users/lindingyuan/Documents/external_project/cake-2026-build-with-ai/.agents/commands",
+      "kind": "dir",
+      "action": "create"
+    },
+    {
+      "originalPath": "/Users/lindingyuan/Documents/external_project/cake-2026-build-with-ai/.claude/commands",
+      "kind": "symlink",
+      "action": "create"
+    },
+    {
+      "originalPath": "/Users/lindingyuan/Documents/external_project/cake-2026-build-with-ai/.cursor/commands",
+      "kind": "symlink",
+      "action": "create"
+    },
+    {
+      "originalPath": "/Users/lindingyuan/Documents/external_project/cake-2026-build-with-ai/.agents/hooks",
+      "kind": "dir",
+      "action": "create"
+    },
+    {
+      "originalPath": "/Users/lindingyuan/Documents/external_project/cake-2026-build-with-ai/.claude/hooks",
+      "kind": "symlink",
+      "action": "create"
+    },
+    {
+      "originalPath": "/Users/lindingyuan/Documents/external_project/cake-2026-build-with-ai/.claude/skills",
+      "kind": "symlink",
+      "action": "create"
+    },
+    {
+      "originalPath": "/Users/lindingyuan/Documents/external_project/cake-2026-build-with-ai/.cursor/skills",
+      "kind": "symlink",
+      "action": "create"
+    }
+  ]
+}
