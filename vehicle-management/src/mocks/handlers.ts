@@ -1,5 +1,5 @@
 import { http, HttpResponse } from 'msw'
-import { users, vehicles, employees } from './data'
+import { users, vehicles, employees, activityLogs } from './data'
 
 let nextVehicleId = vehicles.length + 1
 let nextEmployeeId = employees.length + 1
@@ -52,6 +52,23 @@ export const handlers = [
     if (index === -1) return HttpResponse.json({ message: 'Not found' }, { status: 404 })
     vehicles.splice(index, 1)
     return HttpResponse.json({ success: true })
+  }),
+
+  // Activity Logs
+  http.get('/api/activity-logs', ({ request }) => {
+    const url = new URL(request.url)
+    const action = url.searchParams.get('action')
+    const userId = url.searchParams.get('userId')
+
+    let filtered = [...activityLogs]
+    if (action) {
+      filtered = filtered.filter((log) => log.action === action)
+    }
+    if (userId) {
+      filtered = filtered.filter((log) => log.userId === userId)
+    }
+    filtered.sort((a, b) => new Date(b.timestamp).getTime() - new Date(a.timestamp).getTime())
+    return HttpResponse.json(filtered)
   }),
 
   // Employees CRUD

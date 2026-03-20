@@ -1,20 +1,22 @@
 schema: spec-driven
 
-# Project context (optional)
-# This is shown to AI when creating artifacts.
-# Add your tech stack, conventions, style guides, domain knowledge, etc.
-# Example:
-#   context: |
-#     Tech stack: TypeScript, React, Node.js
-#     We use conventional commits
-#     Domain: e-commerce platform
+context: |
+  Domain: Vehicle fleet management system (車輛管理系統)
+  Tech stack: React 19, TypeScript, Vite 8, React Router v7, Recharts
+  No real backend — all API calls are mocked via MSW (Mock Service Worker)
+  API routes follow /api/* convention, handlers in src/mocks/handlers.ts
+  Auth: context-based with two roles (admin, user)
+  UI text is in Traditional Chinese (繁體中文)
+  We use conventional commits
+  App source lives in vehicle-management/ subdirectory
 
-# Per-artifact rules (optional)
-# Add custom rules for specific artifacts.
-# Example:
-#   rules:
-#     proposal:
-#       - Keep proposals under 500 words
-#       - Always include a "Non-goals" section
-#     tasks:
-#       - Break tasks into chunks of max 2 hours
+rules:
+  proposal:
+    - Keep proposals under 500 words
+    - Always include a "Non-goals" section
+  tasks:
+    - Break tasks into chunks of max 2 hours
+    - Each task should specify which files are affected
+  specs:
+    - Include MSW handler changes when the feature needs new or modified API endpoints
+    - Specify role-based access requirements (admin vs user) when relevant
