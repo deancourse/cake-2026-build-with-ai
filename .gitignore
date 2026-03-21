@@ -1,0 +1,41 @@
+# Dependencies
+node_modules/
+
+# Build output
+dist/
+dist-ssr/
+
+# Logs
+logs/
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
+
+# Environment & secrets
+*.local
+.env
+.env.*
+
+# Editor directories and files
+.vscode/*
+!.vscode/extensions.json
+.idea/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Claude Code local settings (不追蹤個人設定，但追蹤 skills 與 commands)
+.claude/settings.local.json
+
+# 以下目錄須加入版本控制，請勿忽略：
+# .claude/       — Agent Skills 與 commands
+# openspec/      — 規格驅動開發工作流
