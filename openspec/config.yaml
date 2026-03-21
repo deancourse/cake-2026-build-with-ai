@@ -1,0 +1,40 @@
+schema: spec-driven
+
+context: |
+  ## Project
+  Vehicle Management System — an educational course example for AI-assisted development.
+  Course: deanlin.net/course/cake
+  No real backend — all API interactions use MSW (Mock Service Worker) mock handlers.
+
+  ## Tech Stack
+  - Frontend: React 19 + TypeScript 5.9 (strict mode) + Vite 8
+  - Styling: Tailwind CSS 4 (via Vite plugin)
+  - Routing: React Router 7
+  - Data Visualization: Recharts
+  - API Mocking: MSW 2 (browser worker in development)
+  - Linting: ESLint 9 with TypeScript support
+
+  ## Architecture
+  - Auth via React Context (AuthContext) with localStorage persistence (key: auth_user)
+  - Role-based access: admin | user, enforced by ProtectedRoute and AdminRoute components
+  - Pages: Login, Dashboard, Vehicles, Employees (admin-only)
+  - Mock data and handlers in src/mocks/
+
+  ## Conventions
+  - Commit format: conventional commits in Traditional Chinese
+    Example: feat(skill): 新增 ui-ux-pro-max UI/UX 設計智能 skill
+  - TypeScript strict mode enforced (no unused locals/parameters, no fallthrough cases)
+  - Source code is in vehicle-management-system/src/
+  - Build: npm run build (tsc -b && vite build)
+  - Dev server: npm run dev
+  - Lint: npm run lint
+
+rules:
+  proposal:
+    - Include a "Non-goals" section to keep scope clear
+    - Describe how the change interacts with the existing auth/role system if applicable
+    - Note whether new MSW mock handlers are needed
+  tasks:
+    - Each task should be completable independently
+    - Include verification steps (build, lint, manual check)
+    - Specify which files/directories are affected
